@@ -1,0 +1,3 @@
+export const FETCH_USERS = 'FETCH_USERS';
+export const START_LOADING = 'START_LOADING';
+export const STOP_LOADING = 'STOP_LOADING';
