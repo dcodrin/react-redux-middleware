@@ -11,11 +11,11 @@ import reducers from './reducers';
 import Async from './middlewares/async';
 
 //Apply custom middleware to redux. If you have multiple middleware chain them with a comma
-const createStoreWithMiddleware = applyMiddleware(Async)(createStore);
 
 ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducers, {}, compose(
-    redux.applyMiddleware(thunk),
+    <Provider store={createStore(reducers, {}, compose(
+    applyMiddleware(Async),
+    applyMiddleware(thunk),
     window.devToolsExtension ? window.devToolsExtension() : f => f
   ))}>
         <App />
